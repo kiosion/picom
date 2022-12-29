@@ -3,6 +3,41 @@ picom
 
 __picom__ is a compositor for X, and a [fork of Compton](History.md).
 
+This fork implements tryone's dual_kawase blur, rounded corners from sdhand, and animations from pijulius' fork.
+
+It needs to be run with the new experimental backends via: `picom --experimental-backends`
+
+Your config can now also take advantage of some animation options:
+
+* `animations` enable animations (default: true)
+* `animation-stiffness`
+* `animation-dampening`
+* `animation-clamping`
+* `animation-mass`
+* `animation-for-open-window`
+* `animation-for-menu-window`
+* `animation-for-transient-window`
+* `animation-for-workspace-switch-in`
+* `animation-for-workspace-switch-out`
+* `animations-exclude` (optional list of exclude rules)
+
+### Installation of this fork
+
+* Prepare the [upstream AUR package](https://aur.archlinux.org/packages/picom-pijulius-git), then open the PKGBUILD
+* Replace 'pijulius' with 'kiosion' in the two git URLs
+* Save and install using your AUR helper normally
+
+OR,
+
+```bash
+git clone https://github.com/kiosion/picom.git kiosion-picom
+cd kiosion-picom
+meson --buildtype=release . build
+ninja -C build
+# Install bins to /usr/local/bin
+sudo ninja -C build install
+```
+
 **This is a development branch, bugs to be expected**
 
 You can leave your feedback or thoughts in the [discussion tab](https://github.com/yshui/picom/discussions).
